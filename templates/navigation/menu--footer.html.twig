@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Theme override for the footer menu.
+ */
+#}
+<ul{{ attributes.addClass('footer__menu') }}>
+  {% for item in items %}
+    <li{{ item.attributes.addClass('footer__menu-item') }}>
+      {{ link(item.title, item.url, {'class': ['footer__menu-link']}) }}
+    </li>
+  {% endfor %}
+</ul> 

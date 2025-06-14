@@ -1,0 +1,151 @@
+/* Layout styles for Skyline2 theme */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Main content area */
+.main-content {
+  padding: 2rem 0;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  padding: 2rem 0;
+  width: 100%;
+}
+
+/* Footer */
+.footer {
+  background-color: #2D374F; /* Your dark blue background */
+  color: #e2e8f0; /* Light blue text */
+  padding: 5rem 0;
+  margin-top: 4rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  text-align: center;
+}
+
+.footer__container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__content {
+  text-align: center;
+  width: 100%;
+}
+
+.footer__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer__menu-item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer__menu-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.footer__menu-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__text {
+  font-size: 1.125rem;
+  margin: 0;
+  color: #ffffff; /* White text */
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Page sections */
+.section {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.section--light {
+  background-color: #f8f9fa;
+}
+
+.section--dark {
+  background-color: #343a40;
+  color: white;
+}
+
+/* Content width utilities */
+.content-width--narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-width--wide {
+  max-width: 1400px;
+  margin: 0 auto;
+} 

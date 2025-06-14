@@ -1,0 +1,11 @@
+{#
+  Custom main menu template for horizontal navigation.
+  Place this in templates/navigation/menu--main.html.twig in your theme.
+#}
+<ul class="main-nav__menu">
+  {% for item in items %}
+    <li class="main-nav__item">
+      <a href="{{ item.url }}" class="main-nav__link{% if item.in_active_trail %} is-active{% endif %}">{{ item.title }}</a>
+    </li>
+  {% endfor %}
+</ul> 

@@ -1,0 +1,31 @@
+name: Skyline
+type: theme
+base theme: false
+description: 'An ultra-clean and modern responsive theme inspired by the big city.'
+core_version_requirement: ^11
+libraries:
+  - skyline/global-styling
+  - skyline/responsive
+  - skyline/navigation
+  - skyline/hero
+  - skyline/article-grid
+regions:
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  highlighted: Highlighted
+  featured_top: Featured top
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
+  below_content: Below Content
+components:
+  powered-by:
+    path: components/powered-by
+    css:
+      component:
+        powered-by.css: {} 

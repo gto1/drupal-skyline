@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override to display a grid of rows.
+ */
+#}
+{%
+  set classes = [
+    'views-view-grid',
+    'article-grid',
+    'views-view-grid--' ~ options.alignment,
+    'views-view-grid--' ~ options.columns ~ '-columns',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <div class="article-grid__container">
+    {% for row in rows %}
+      <div{{ row.attributes.addClass('article-card') }}>
+        {{ row.content }}
+      </div>
+    {% endfor %}
+  </div>
+</div> 

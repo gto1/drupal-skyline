@@ -1,0 +1,22 @@
+.powered-by {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.powered-by__text {
+  margin: 0;
+}
+
+.powered-by__link {
+  color: var(--color-accent-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.powered-by__link:hover {
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+}

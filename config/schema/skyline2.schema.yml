@@ -1,0 +1,31 @@
+skyline2.settings:
+  type: theme_settings
+  label: 'Skyline2 theme settings'
+  mapping:
+    hero_height:
+      type: string
+      label: 'Hero section height'
+    hero_overlay:
+      type: string
+      label: 'Hero overlay style'
+    grid_columns:
+      type: string
+      label: 'Grid columns'
+    card_style:
+      type: string
+      label: 'Card style'
+    primary_color:
+      type: string
+      label: 'Primary color'
+    secondary_color:
+      type: string
+      label: 'Secondary color'
+    accent_light:
+      type: string
+      label: 'Light accent color'
+    accent_dark:
+      type: string
+      label: 'Dark accent color'
+    base_font_size:
+      type: string
+      label: 'Base font size' 

@@ -1,0 +1,184 @@
+<?php
+
+/**
+ * @file
+ * Contains theme override functions and preprocess functions for the Skyline2 theme.
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function skyline2_preprocess_html(&$variables) {
+  // Add custom classes to the body tag.
+  $variables['attributes']['class'][] = 'skyline2-theme';
+  
+  // Add viewport meta tag for responsive design.
+  $viewport = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1.0',
+    ],
+  ];
+  $variables['page']['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function skyline2_preprocess_page(&$variables) {
+  // Add custom classes to the page wrapper.
+  $variables['attributes']['class'][] = 'page-wrapper';
+  
+  // Add hero region class if hero region has content.
+  if (!empty($variables['page']['hero'])) {
+    $variables['attributes']['class'][] = 'has-hero';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function skyline2_preprocess_node(&$variables) {
+  // Add custom classes to node wrapper.
+  $variables['attributes']['class'][] = 'node-wrapper';
+  
+  // Add article card class for article nodes.
+  if ($variables['node']->getType() == 'article') {
+    $variables['attributes']['class'][] = 'article-card';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field.html.twig.
+ */
+function skyline2_preprocess_field(&$variables) {
+  // Add custom classes to field wrappers.
+  $variables['attributes']['class'][] = 'field-wrapper';
+  
+  // Add specific classes for image fields.
+  if ($variables['field_name'] == 'field_image') {
+    $variables['attributes']['class'][] = 'field-image';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views-view.html.twig.
+ */
+function skyline2_preprocess_views_view(&$variables) {
+  // Add custom classes to views wrapper.
+  $variables['attributes']['class'][] = 'views-wrapper';
+  
+  // Add article grid class for article views.
+  if ($variables['view']->id() == 'articles') {
+    $variables['attributes']['class'][] = 'article-grid';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function skyline2_preprocess_menu(&$variables) {
+  // Add custom classes to menu wrapper.
+  $variables['attributes']['class'][] = 'menu-wrapper';
+  
+  // Add main navigation class for main menu.
+  if ($variables['menu_name'] == 'main') {
+    $variables['attributes']['class'][] = 'main-nav__menu';
+    
+    // Add classes to menu items
+    foreach ($variables['items'] as &$item) {
+      if (!isset($item['attributes'])) {
+        $item['attributes'] = new Attribute();
+      }
+      $item['attributes']->addClass('main-nav__link');
+      
+      // Add active class if item is active
+      if (!empty($item['in_active_trail'])) {
+        $item['attributes']->addClass('is-active');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu-local-task.html.twig.
+ */
+function skyline2_preprocess_menu_local_task(&$variables) {
+  // Add custom classes to local task items.
+  $variables['attributes']['class'][] = 'local-task';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function skyline2_preprocess_block(&$variables) {
+  // Add custom classes to block wrapper.
+  $variables['attributes']['class'][] = 'block-wrapper';
+  
+  // Add specific classes for different block types.
+  if ($variables['plugin_id'] == 'system_branding_block') {
+    $variables['attributes']['class'][] = 'branding-block';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for image.html.twig.
+ */
+function skyline2_preprocess_image(&$variables) {
+  // Add lazy loading to images.
+  $variables['attributes']['loading'] = 'lazy';
+  
+  // Add data-src attribute for lazy loading.
+  if (!empty($variables['uri'])) {
+    $file_url = \Drupal::service('file_url_generator')->generateString($variables['uri']);
+    $variables['attributes']['data-src'] = $file_url;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for node.
+ */
+function skyline2_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  // Add node type specific suggestions.
+  $node = $variables['elements']['#node'];
+  $suggestions[] = 'node__' . $node->getType() . '__' . $variables['elements']['#view_mode'];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page.
+ */
+function skyline2_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Add path specific suggestions.
+  $path = \Drupal::service('path.current')->getPath();
+  $suggestions[] = 'page__' . str_replace(['/', '-'], ['__', '_'], $path);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.
+ */
+function skyline2_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  if ($variables['menu_name'] == 'main') {
+    $suggestions[] = 'menu__main_navigation';
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_grid().
+ */
+function skyline2_preprocess_views_view_grid(&$variables) {
+  // Add our custom classes to the grid container
+  $variables['attributes']['class'][] = 'article-grid';
+  
+  // Add classes to each row
+  foreach ($variables['rows'] as &$row) {
+    if (!isset($row['attributes'])) {
+      $row['attributes'] = new Attribute();
+    }
+    $row['attributes']->addClass('article-card');
+  }
+} 

@@ -1,0 +1,10 @@
+# Theme settings for Skyline2 theme
+hero_height: medium
+hero_overlay: gradient
+grid_columns: '3'
+card_style: elevated
+primary_color: '#2D374F'
+secondary_color: '#B0CEEA'
+accent_light: '#FBECB4'
+accent_dark: '#FAC739'
+base_font_size: '16' 

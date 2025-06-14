@@ -1,0 +1,39 @@
+skyline2.small:
+  label: Small
+  mediaQuery: 'all'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+
+skyline2.medium:
+  label: Medium
+  mediaQuery: 'all and (min-width: 640px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+
+skyline2.large:
+  label: Large
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+
+skyline2.xlarge:
+  label: Extra Large
+  mediaQuery: 'all and (min-width: 1024px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+
+skyline2.xxlarge:
+  label: 2X Large
+  mediaQuery: 'all and (min-width: 1280px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x 

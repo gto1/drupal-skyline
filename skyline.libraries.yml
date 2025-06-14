@@ -1,0 +1,51 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/base.css: {}
+      css/components.css: {}
+      css/layout.css: {}
+      css/views-responsive-grid.css: {}
+  js:
+    js/global.js: {}
+  dependencies:
+    - core/jquery
+
+responsive:
+  version: 1.x
+  css:
+    theme:
+      css/responsive.css: {}
+
+navigation:
+  version: 1.x
+  css:
+    theme:
+      css/navigation.css: {}
+  js:
+    js/navigation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
+hero:
+  version: 1.x
+  css:
+    theme:
+      css/hero.css: {}
+  js:
+    js/hero.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+article-grid:
+  version: 1.x
+  css:
+    theme:
+      css/article-grid.css: {}
+  js:
+    js/article-grid.js: {}
+  dependencies:
+    - core/jquery 

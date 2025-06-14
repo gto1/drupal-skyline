@@ -1,0 +1,5 @@
+name: Powered by Drupal
+description: 'A reusable Powered by Drupal footer component.'
+css:
+  component:
+    powered-by.css: {}
