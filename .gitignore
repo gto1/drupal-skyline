@@ -60,3 +60,7 @@
 /drush
 /drupal.phar
 /drupal
+
+.DS_Store
+node_modules/
+*.log
