@@ -21,6 +21,12 @@
   </header>
 
   <main class="main-content">
+    {% if page.title %}
+      <div class="page-title-wrapper">
+        {{ page.title }}
+      </div>
+    {% endif %}
+    
     {{ page.content }}
   </main>
   {{ page.below_content }}

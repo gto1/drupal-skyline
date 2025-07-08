@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override for the article author field.
+ */
+#}
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass('author-list') }}>
+      {% for item in items %}
+        <span{{ item.attributes.addClass('author-item') }}>{{ item.content }}</span>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass('author-byline') }}>
+        <span class="author-label">Authored by:</span>
+        <span{{ item.attributes.addClass('author-name') }}>{{ item.content }}</span>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass('author-field') }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="author-list">
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('author-item') }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
