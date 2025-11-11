@@ -1,0 +1,14 @@
+{# templates/field/field--node--field-description.html.twig #}
+
+{% set classes = [
+  'field',
+  'field--name-field-description',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item') }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

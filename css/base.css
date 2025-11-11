@@ -199,3 +199,12 @@ blockquote p {
 img.align-left {
   margin-right: 1em;
 }
+
+
+.field--name-field-description {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  background-color: var(--color-accent-light);
+}
